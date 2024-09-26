@@ -1,13 +1,12 @@
 const express = require("express");
 require("dotenv").config();
 const mongoose = require("mongoose");
+const router = require("./routes/routes");
 
 const app = express();
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Welcome");
-});
+app.use("/api", router);
 
 port = process.env["PORT"] || 5000;
 const uri = process.env["MONGODB"];
